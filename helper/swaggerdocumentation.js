@@ -1,5 +1,6 @@
 import envConfig from "../config/envConfig.js";
 import userDocsRoutes from "../routes/user.doc.js";
+import jobDocApplication from '../routes/jobApplication.doc.js';
 const swaggerdocumentation = {
   openapi: '3.0.0',
   info: {
@@ -27,10 +28,15 @@ const swaggerdocumentation = {
     {
       name: "User",
       description: "User authentication and management endpoints"
+    },
+    {
+      name: "Job Application",
+      description: "Job Application endpoints"
     }
   ],
   paths: {
-    ...userDocsRoutes
+    ...userDocsRoutes,
+   ...jobDocApplication
   }
 }
 
