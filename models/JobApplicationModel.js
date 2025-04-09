@@ -31,6 +31,11 @@ const jobApplicationSchema = new mongoose.Schema({
       },
       message: 'Please enter a valid URL'
     }
+  },
+  createdBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: [true, 'User reference is required']
   }
 }, {
   timestamps: true
