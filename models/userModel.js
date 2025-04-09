@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 //  create the userSchema 
 const userSchema = new mongoose.Schema({
-  userName: {
+  name: {
     type: String,
     required: [true, "please username!"]
   },

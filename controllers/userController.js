@@ -9,24 +9,17 @@ import envConfig from '../config/envConfig.js'
 const register = async (req, res, next) => {
   try {
     const reqBody = req.body;
-    const { error } = userRegistrationValidation.validate(reqBody);
-    // check error is prsent or not
-    if (error) {
-      const err = new Error();
-      err.status = 401;
-      err.message = error.details[0].message;
-      return next(err); // pass the error to the globalErrorHandler
-    }
+
+    
 
     //  destructure the  req body 
-    const userName = reqBody.userName;
+    const name = reqBody.name;
     const email = reqBody.email;
     const password = reqBody.password;
     
-
     // check user Already exist 
     const userExist = await User.findOne({ email: email });
-
+    
     if (userExist) {
       const err = new Error();
       err.status = 401;
@@ -40,10 +33,9 @@ const register = async (req, res, next) => {
 
     //  create user 
     const user = new User({
-      userName: userName,
+      name: name,
       email: email,
       password: hashedPassword,
-      role: role
     })
 
     await user.save();
@@ -59,13 +51,8 @@ const register = async (req, res, next) => {
 const login = async (req, res, next) => {
   try {
     const reqBody = req.body;
-    const { error } = userLoginValidation.validate(reqBody);
-    if (error) {
-      const err = new Error();
-      err.status = 401;
-      err.message = error.details[0].message;
-      return next(err);
-    }
+    
+   
     // check user already exist or not
     const userExist = await User.findOne({ email: reqBody.email });
     if (!userExist) {

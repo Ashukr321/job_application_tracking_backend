@@ -8,9 +8,9 @@ const registerUser = {
       "application/json": {
         schema: {
           type: "object",
-          required: ["userName", "email", "password"],
+          required: ["name", "email", "password"],
           properties: {
-            userName: {
+            name: {
               type: "string",
               description: "User's full name",
               example: "John Doe",
