@@ -17,7 +17,7 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 // import routes 
 import userRoutes from './routes/userRoutes.js'
-
+import jobRoutes from './routes/jobApplicationRoute.js'
 // Get current file path in ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -68,6 +68,7 @@ if (envConfig.node_env == "development") {
 const baseurl = "/api/v1"
 // user routes 
 app.use(`${baseurl}/user`, userRoutes);
+app.use(`${baseurl}/job`, jobRoutes);
 
 //  globalErrorHandler  
 app.use(globalErrorHandler);

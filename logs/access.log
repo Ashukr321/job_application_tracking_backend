@@ -1,1 +1,6 @@
 [0mGET /favicon.ico [33m404[0m 1.951 ms - 150[0m
+[0mGET // [33m404[0m 1.993 ms - 140[0m
+[0mGET /jon [33m404[0m 2.004 ms - 142[0m
+[0mGET /job [33m404[0m 0.342 ms - 142[0m
+[0mGET /job [33m404[0m 0.223 ms - 142[0m
+[0mGET /api/v1/job [32m200[0m 1.441 ms - 21[0m
