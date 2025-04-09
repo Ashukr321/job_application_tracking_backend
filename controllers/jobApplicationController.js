@@ -1,6 +1,6 @@
-import JobApplication from '../models/jobApplication.js';
+import JobApplication from '../models/JobApplicationModel.js';
 
-export const createJobApplication = async (req, res) => {
+ const createJobApplication = async (req, res) => {
   try {
     const { company, role, status, dateOfApplication, link } = req.body;
 
@@ -55,7 +55,7 @@ export const createJobApplication = async (req, res) => {
   }
 };
 
-export const getAllJobApplications = async (req, res) => {
+ const getAllJobApplications = async (req, res) => {
   try {
     const applications = await JobApplication.find()
       .sort({ dateOfApplication: -1 }); // Sort by date, newest first
@@ -73,7 +73,7 @@ export const getAllJobApplications = async (req, res) => {
   }
 };
 
-export const updateJobApplication = async (req, res) => {
+const updateJobApplication = async (req, res) => {
   try {
     const { id } = req.params;
     const updateData = req.body;
@@ -124,7 +124,7 @@ export const updateJobApplication = async (req, res) => {
   }
 };
 
-export const deleteJobApplication = async (req, res) => {
+const deleteJobApplication = async (req, res) => {
   try {
     const { id } = req.params;
 
@@ -150,3 +150,4 @@ export const deleteJobApplication = async (req, res) => {
     });
   }
 };
+export { createJobApplication, getAllJobApplications, updateJobApplication, deleteJobApplication };
